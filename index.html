@@ -1,1 +1,212 @@
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Física 2º Bachillerato</title>
 
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+        background: linear-gradient(135deg, #0f172a, #1e3a8a);
+        color: white;
+    }
+
+    header {
+        text-align: center;
+        padding: 40px 20px;
+        background: rgba(0,0,0,0.3);
+        backdrop-filter: blur(10px);
+    }
+
+    header h1 {
+        font-size: 40px;
+        color: #38bdf8;
+    }
+
+    header p {
+        opacity: 0.8;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 15px;
+    }
+
+    nav button {
+        background: rgba(255,255,255,0.1);
+        border: none;
+        padding: 10px 18px;
+        color: white;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    nav button:hover {
+        background: #38bdf8;
+        color: black;
+        transform: scale(1.1);
+    }
+
+    section {
+        display: none;
+        padding: 40px;
+        animation: fade 0.5s;
+    }
+
+    section.active {
+        display: block;
+    }
+
+    @keyframes fade {
+        from {opacity: 0; transform: translateY(10px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .card {
+        background: rgba(255,255,255,0.08);
+        padding: 20px;
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+        transition: 0.3s;
+    }
+
+    .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
+
+    .btn {
+        margin-top: 15px;
+        padding: 10px;
+        border: none;
+        border-radius: 8px;
+        background: #38bdf8;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .btn:hover {
+        background: #0ea5e9;
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        opacity: 0.7;
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Física 2º Bachillerato</h1>
+    <p>Aprende de forma visual, clara y moderna</p>
+</header>
+
+<nav>
+    <button onclick="cambiar('inicio')">Inicio</button>
+    <button onclick="cambiar('cinematica')">Cinemática</button>
+    <button onclick="cambiar('dinamica')">Dinámica</button>
+    <button onclick="cambiar('energia')">Energía</button>
+    <button onclick="cambiar('ondas')">Ondas</button>
+</nav>
+
+<section id="inicio" class="active">
+    <h2>Bienvenido</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>📘 Teoría clara</h3>
+            <p>Explicaciones sencillas y completas.</p>
+        </div>
+        <div class="card">
+            <h3>🧠 Ejercicios</h3>
+            <p>Practica con ejemplos reales.</p>
+        </div>
+        <div class="card">
+            <h3>⚡ Fórmulas</h3>
+            <p>Accede rápidamente a las fórmulas clave.</p>
+        </div>
+    </div>
+</section>
+
+<section id="cinematica">
+    <h2>Cinemática</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Movimiento Rectilíneo</h3>
+            <p>MRU y MRUA.</p>
+            <button class="btn" onclick="alert('v = d/t')">Ver fórmula</button>
+        </div>
+        <div class="card">
+            <h3>Aceleración</h3>
+            <p>Cambio de velocidad.</p>
+            <button class="btn" onclick="alert('a = Δv/t')">Ver fórmula</button>
+        </div>
+    </div>
+</section>
+
+<section id="dinamica">
+    <h2>Dinámica</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Leyes de Newton</h3>
+            <p>Base de la mecánica.</p>
+            <button class="btn" onclick="alert('F = m·a')">Ver fórmula</button>
+        </div>
+    </div>
+</section>
+
+<section id="energia">
+    <h2>Energía</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Energía Cinética</h3>
+            <button class="btn" onclick="alert('Ec = ½mv²')">Ver fórmula</button>
+        </div>
+        <div class="card">
+            <h3>Energía Potencial</h3>
+            <button class="btn" onclick="alert('Ep = mgh')">Ver fórmula</button>
+        </div>
+    </div>
+</section>
+
+<section id="ondas">
+    <h2>Ondas</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Velocidad de onda</h3>
+            <button class="btn" onclick="alert('v = λ·f')">Ver fórmula</button>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 - Web de Física</p>
+</footer>
+
+<script>
+function cambiar(id) {
+    document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+}
+</script>
+
+</body>
+</html>
